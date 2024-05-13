@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { TodoService } from '../../services/todo.service';
-import { TodoFavouriteListComponent } from '../../widgets/todo-favourite-list/todo-favourite-list.component';
+import { TodoFavouriteListComponent } from './todo-favourite-list/todo-favourite-list.component';
+import { TodoService } from '../home/todo.service';
 
 @Component({
   selector: 'app-todo-favourite',

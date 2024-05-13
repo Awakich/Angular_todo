@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { TodoListComponent } from '../../widgets/todo-list/todo-list.component';
-import { TodoService } from '../../services/todo.service';
-import { Todo } from '../../interfaces/todo';
 import { FormsModule } from '@angular/forms';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoService } from './todo.service';
+import { Todo } from '../interfaces/todo';
 
 @Component({
   selector: 'app-home',
