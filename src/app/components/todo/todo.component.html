@@ -1,0 +1,26 @@
+<section
+  [ngClass]="todo.completed ? 'todo_completed' : 'todo_incompleted'"
+  class="todo">
+  <h2 class="todo_title">{{ todo.title ? todo.title : 'No title' }}</h2>
+
+  <p class="todo_description">
+    {{ todo.description ? todo.description : 'No description' }}
+  </p>
+
+  <div class="todo_status">
+    <label for="complete">
+      Complete
+      <input
+        id="complete"
+        type="checkbox"
+        (input)="toggleTodo(todo.id)"
+        [checked]="todo.completed" />
+    </label>
+
+    @if (todo.inFavourite) {
+    <button class="btn" (click)="toggleFavouriteTodo(todo.id)">X</button>
+    }@else {
+    <button class="btn" (click)="toggleFavouriteTodo(todo.id)">+</button>
+    }
+  </div>
+</section>

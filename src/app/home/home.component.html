@@ -1,0 +1,31 @@
+<main class="home">
+  <h2>Todo App on Angular</h2>
+
+  <section class="creation_block">
+    <label class="label" for="title">
+      Title
+      <input
+        class="input"
+        [(ngModel)]="title"
+        id="title"
+        placeholder="Enter title"
+        type="text" />
+    </label>
+
+    <label class="label" for="description">
+      Description
+      <input
+        class="input"
+        [(ngModel)]="description"
+        id="description"
+        placeholder="Enter description (optional)"
+        type="text" />
+    </label>
+
+    <button class="btn" (click)="addTodo(title, description)" type="submit">
+      Add Todo
+    </button>
+  </section>
+
+  <app-todo-list />
+</main>

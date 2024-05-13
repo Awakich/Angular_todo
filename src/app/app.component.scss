@@ -1,0 +1,32 @@
+.content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navigation {
+
+    &_list {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+    }
+
+    &_el {
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    &_el--link {
+        color: #222;
+        text-decoration: none;
+
+        &:hover {
+            color: #444;
+        }
+    }
+
+}
+

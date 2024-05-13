@@ -1,0 +1,36 @@
+.todo {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &_completed {
+        border-color: green;
+    }
+
+    &_incompleted {
+        border-color: red;
+    }
+
+    &_description {
+        color: gray;
+        font-style: italic;
+    }
+
+    &_status {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .btn {
+            cursor: pointer;
+            border: 1px solid #222;
+            background-color: transparent;
+            padding: 0px 6px;
+            border-radius: 9999px;
+            outline: none;
+        }
+    }
+}
