@@ -1,41 +1,38 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Todo } from '../interfaces/todo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-
-  constructor() { }
-
-  todoList: Todo[] = []
-  favouriteList: Todo[] = []
+  todoList = signal<Todo[]>([])
+  favouriteList = signal<Todo[]>([])
 
   getAllTodos(): Todo[] {
-    return this.todoList;
+    return this.todoList();
   }
 
   addTodo(todo: Todo) {
-    this.todoList.push(todo)
+    this.todoList.update(todos => [...todos, todo]);
   }
 
   toggleTodo(id: number) {
-    const findTodo = this.todoList.find((todo) => todo.id === id)!;
+    const findTodo = this.todoList().find((todo) => todo.id === id)!;
     findTodo.completed = !findTodo.completed;
   }
 
   getAllFavouriteTodos() {
-    return this.favouriteList;
+    return this.favouriteList()
   }
 
   toggleFavouriteTodo(id: number) {
-    const findTodo = this.todoList.find(item => item.id === id);
+    const findTodo = this.todoList().find(item => item.id === id);
     if (findTodo) {
-      const index = this.favouriteList.findIndex(item => item.id === id);
+      const index = this.favouriteList().findIndex(item => item.id === id);
       if (index === -1) {
-        this.favouriteList.push(findTodo);
+        this.favouriteList.update(todos => [...todos, findTodo]);
       } else {
-        this.favouriteList.splice(index, 1);
+        this.favouriteList().splice(index, 1);
       }
 
     }
