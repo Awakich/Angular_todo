@@ -2,7 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { Todo } from '../../../interfaces/todo';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TodoService } from '../../todo.service';
+import { TodoService } from '../../../services/todo.service';
 
 @Component({
   selector: 'app-todo',

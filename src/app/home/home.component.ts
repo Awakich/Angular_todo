@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoService } from './todo.service';
+import { TodoService } from '../services/todo.service';
 import { Todo } from '../interfaces/todo';
+import { TodoComponent } from './components/todo/todo.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TodoListComponent, FormsModule],
+  imports: [TodoComponent, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -15,8 +15,11 @@ export class HomeComponent {
   private todoService = inject(TodoService)
   title: string = '';
   description: string = '';
+  todoList: Todo[] = []
 
-  constructor() { }
+  constructor() {
+    this.todoList = this.todoService.getAllTodos();
+  }
 
   addTodo(title: string, description?: string) {
     if (!title.trim().length) return;

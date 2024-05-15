@@ -27,5 +27,13 @@
     </button>
   </section>
 
-  <app-todo-list />
+  <section class="todo_list">
+    @if (todoList) { @for(todo of todoList; track todo.id){
+    <app-todo [todo]="todo" />
+    } @empty {
+    <p class="empty">No todo!</p>
+    } } @else {
+    <p class="error">No todo List!</p>
+    }
+  </section>
 </main>

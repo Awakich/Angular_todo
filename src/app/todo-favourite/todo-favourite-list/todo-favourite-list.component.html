@@ -1,9 +1,0 @@
-<section class="todo_list">
-  @if (favouriteList) { @for(todo of favouriteList; track todo.id){
-  <app-todo [todo]="todo" />
-  } @empty {
-  <p class="empty">No favourite todo!</p>
-  } } @else {
-  <p class="error">No Favourite List!</p>
-  }
-</section>

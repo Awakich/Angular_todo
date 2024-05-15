@@ -1,16 +1,20 @@
 import { Component, inject } from '@angular/core';
-import { TodoFavouriteListComponent } from './todo-favourite-list/todo-favourite-list.component';
-import { TodoService } from '../home/todo.service';
+import { TodoService } from '../services/todo.service';
+import { Todo } from '../interfaces/todo';
+import { TodoComponent } from '../home/components/todo/todo.component';
 
 @Component({
   selector: 'app-todo-favourite',
   standalone: true,
-  imports: [TodoFavouriteListComponent],
+  imports: [TodoComponent],
   templateUrl: './todo-favourite.component.html',
   styleUrl: './todo-favourite.component.scss'
 })
 export class TodoFavouriteComponent {
   private todoService = inject(TodoService);
+  favouriteList: Todo[] = [];
 
-
+  constructor() {
+    this.favouriteList = this.todoService.getAllFavouriteTodos();
+  }
 }
